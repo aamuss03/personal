@@ -44,13 +44,16 @@ def save_diary():
     profilename = f'profile-{mytime}.{extensionp}'
     save_profile = f'static/profile/{profilename}'
     profile.save(save_profile)
+    
+    time = datetime.strftime('%Y.%m.%d')
 
 
     doc = {
     'file': filename,
     'profile': profilename,
     'title': title_receive,
-    'content': content_receive
+    'content': content_receive,
+    'time': time,
     }
     db.diary.insert_one(doc)
     return jsonify({'msg':'Upload complete!'})

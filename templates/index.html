@@ -7,6 +7,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <meta property="og:title" content="Personal Diary" />
+    <meta
+      property="og:description"
+      content="Personal Banget Jadi Orang"
+    />
+    <meta
+      property="og:image"
+      content="{{ url_for('static', filename='../static/personal.png') }}"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -69,8 +78,9 @@
             for (let i = 0; i < articles.length; i++) {
               let title = articles[i]["title"];
               let content = articles[i]["content"];
-              let file = articles[i]["file"] || "default-image.jpg";
-              let profile = articles[i]["profile"] || "default-profile.png";
+              let time = articles[i]["time"] || "????.??.??";
+              let file = articles[i]["file"] || "../static/post/default-image.jpg";
+              let profile = articles[i]["profile"] || "../static/profile/default-profile.png";
               let temp_html = `
               <div class="col-4">
                 <div class="card">
@@ -81,7 +91,7 @@
                   class="card-img-top" alt="...">
                     <h5 class="card-title">${title}</h5>
                     <p class="card-text">${content}</p>
-                    <h6 class="card-subtitle mb-2 text-muted"></h6>
+                    <h6 class="card-subtitle mb-2 text-muted">${time}</h6>
                   </div>
                 </div>
               </div>
